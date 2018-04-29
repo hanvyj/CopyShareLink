@@ -41,9 +41,10 @@ namespace FileSharePath
             }
             else
             {
-                //var file = new FileInfo(args[0]);
-
-                var file = args[0].Replace(" ", "%20");
+                var file = args[0];
+                
+                file = file.Replace("\\", " /");
+                file = file.Replace(" ", "%20");
                 
                 Clipboard.SetText($"file:///{file}");
             }
